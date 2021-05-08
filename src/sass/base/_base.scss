@@ -1,0 +1,44 @@
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.react-wrapper {
+  margin-top: 56px;
+}
+
+.no-scroll-background {
+  overflow: hidden;
+}
+
+img {
+  display: block;
+}
+
+svg {
+  display: block !important;
+}
+
+.App {
+  background-color: #fff;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+li {
+  list-style-type: none;
+}
+@media only screen and (max-width: 600px) {
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+}

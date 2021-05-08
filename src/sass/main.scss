@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
+@import "base/base";
+@import "abstracts/mixins";
+@import "utils/utils";
+@import "components/cart";
+@import "components/menu";
+@import "components/cartbtn";
+@import "components/header";
+@import "components/homeloader";
+@import "components/productpageloader";
+@import "components/banner";
+@import "components/rowitem";
+@import "components/toprow";
+@import "components/mobilebanner";
+@import "components/home";
+@import "components/footer";
+@import "components/product";
+@import "components/bottomoptions";
+@import "components/drawer";
+@import "components/errorpage";
+
+// .skeleton {
+//   height: 435px;
+//   width: 225px;
+//   background-color: fafafa;
+//   position: relative;
+//   box-shadow: 0 2px 7px #dfdfdf;
+//   margin: 50px auto;
+//   border-radius: 10px;
+//   background-image: url("https://media.geeksforgeeks.org/wp-content/uploads/20200412121906/skeleton-loading.gif");
+//   background-position: 50% 35%;
+// }
+// .loading {
+//   margin: 0 auto;
+// }

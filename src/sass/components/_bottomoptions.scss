@@ -1,0 +1,40 @@
+.bottom_options {
+  bottom: 0;
+  display: none;
+  background-color: #ffffff;
+  position: fixed;
+  width: 100%;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 15px;
+  border-top: 1px solid #eaeaec;
+  @include responsive(600px) {
+    display: flex !important;
+  }
+
+  & > * {
+    flex: 1;
+    // text-align: center;
+    background-color: #ffffff;
+
+    &:first-of-type {
+      border-right: 1px solid #d4d5d9;
+    }
+  }
+
+  & .ripple {
+    padding: 14px 0;
+  }
+
+  .bottom_icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .option {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+}

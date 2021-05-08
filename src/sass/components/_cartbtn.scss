@@ -1,0 +1,20 @@
+.cart_btn {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#lblCartCount {
+  position: absolute;
+  font-size: 12px;
+  background: #ff3e6c;
+  color: #fff;
+  vertical-align: top;
+  width: 17px;
+  height: 17px;
+  margin-top: -30px;
+  margin-left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+}

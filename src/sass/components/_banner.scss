@@ -1,0 +1,37 @@
+.banner {
+  padding-top: 40px;
+  padding-bottom: 60px;
+
+  .slick-slider {
+    .slick-slide div {
+      padding-bottom: 26.25%;
+      position: relative;
+    }
+
+    .slick-dots {
+      li {
+        margin: 0 !important;
+        button {
+          &:before {
+            color: #7e818c !important;
+            font-size: 10px !important;
+          }
+        }
+
+        &.slick-active {
+          button {
+            &:before {
+              color: #535766 !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+  }
+}

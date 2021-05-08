@@ -1,0 +1,39 @@
+.ripple > span {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ripple > span {
+    display: inline;
+    border-radius: 50%;
+    position: absolute;
+    transform: scale(0);
+    background: #e53860;
+    opacity: 0.75;
+    animation: ripple 0.5s linear;
+    pointer-events: none;
+  }
+
+  .ripple a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  @keyframes ripple {
+    to {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+  @-webkit-keyframes ripple {
+    to {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+}

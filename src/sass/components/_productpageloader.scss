@@ -1,0 +1,35 @@
+.productpage-skeleton {
+  margin-top: 56px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 100vh;
+  align-items: flex-start;
+  align-content: flex-start;
+  background-color: #fff;
+  .product-card {
+    padding-bottom: 16px;
+    flex: 0 0 50%;
+    overflow: hidden;
+    .product-img-sk {
+      height: 255px;
+      margin: 0 2px 0 4px;
+    }
+    .product-details-sk {
+      margin: 12px 2px 0 4px;
+      .product-brand-sk {
+        height: 12px;
+        margin-bottom: 4px;
+      }
+      .product-name-sk {
+        height: 12px;
+        width: 120px;
+      }
+      .product-price-sk {
+        height: 12px;
+        width: 60px;
+        margin-top: 4px;
+      }
+    }
+  }
+}

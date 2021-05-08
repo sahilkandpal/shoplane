@@ -1,0 +1,51 @@
+.error {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  @include responsive(600px) {
+    height: fit-content;
+    min-height: 90vh;
+  }
+
+  .search_title {
+    margin-top: 90px;
+    span {
+      color: blue;
+      font-weight: bold;
+    }
+  }
+
+  &_img--desk {
+    margin: 50px auto;
+  }
+
+  &_big {
+    font-size: 32px;
+    color: #282c3f;
+    margin: 20px 0;
+  }
+
+  &_small {
+    color: #94969f;
+    font-size: 14px;
+  }
+
+  &_title {
+    padding: 10px;
+    width: 75%;
+    margin: 0 auto;
+    font-size: 20px;
+    color: #3e4152;
+    line-height: 1.33;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-top: 50px;
+    margin-bottom: 140px;
+  }
+
+  &_img--mobile {
+    width: 100%;
+    max-width: 465px;
+    margin: 0 auto;
+  }
+}

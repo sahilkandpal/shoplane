@@ -1,0 +1,48 @@
+.home-loading-skeleton {
+  background-color: #fff;
+  min-height: 100vh;
+  margin-top: 56px;
+
+  .toprow-card-container {
+    display: flex;
+    overflow: hidden;
+    margin: 4px;
+    .toprow-card {
+      height: 66px;
+      flex: 0 0 100px;
+      background-color: #f6f7f8;
+      margin: 4px;
+      border-radius: 4px;
+    }
+  }
+
+  .homerow-img-container {
+    .homerow-img {
+      margin-top: 16px;
+      background-color: #f6f7f8;
+    }
+  }
+}
+
+.skeleton-loader {
+  background-color: #f6f7f8;
+  background-image: linear-gradient(
+    to right,
+    #f6f7f8 0,
+    #edeef1 20%,
+    #f6f7f8 40%,
+    #f6f7f8 100%
+  );
+  background-size: 800px;
+  background-repeat: no-repeat;
+  animation: loading-skeleton 1s infinite linear forwards;
+}
+
+@keyframes loading-skeleton {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}

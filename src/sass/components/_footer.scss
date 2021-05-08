@@ -1,0 +1,46 @@
+section {
+  background: #1d1d1d;
+  color: white;
+  letter-spacing: 1px;
+
+  footer {
+    padding: 20px 100px;
+    display: flex !important;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    @include responsive(768px) {
+      padding: 0 25px 50px 25px;
+    }
+
+    .col {
+      line-height: 2.3;
+      margin-right: 20px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      @include responsive(768px) {
+        margin-top: 50px;
+        flex: 1 1 50%;
+        margin-right: 0;
+        padding-left: 12%;
+      }
+
+      > h3 {
+        font-size: 16px;
+      }
+
+      > p {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .owner {
+    text-align: center;
+    padding-bottom: 10px;
+    font-size: 12px;
+  }
+}

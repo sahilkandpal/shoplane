@@ -1,0 +1,11 @@
+.toprow {
+  padding: 10px 0 20px 0 !important;
+
+  .flex_row .ripple {
+    @include responsive(600px) {
+      border-radius: 4px;
+      margin-right: 10px !important;
+      flex: 0 0 61px !important;
+    }
+  }
+}
