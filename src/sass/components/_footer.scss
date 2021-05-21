@@ -10,7 +10,7 @@ section {
     flex-wrap: wrap;
 
     @include responsive(768px) {
-      padding: 0 25px 50px 25px;
+      padding: 0 0 50px 0;
     }
 
     .col {
@@ -25,7 +25,11 @@ section {
         margin-top: 50px;
         flex: 1 1 50%;
         margin-right: 0;
-        padding-left: 12%;
+        padding-left: 16%;
+      }
+
+      @include responsive(576px) {
+        padding-left: 5%;
       }
 
       > h3 {

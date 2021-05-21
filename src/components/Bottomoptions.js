@@ -9,10 +9,9 @@ const Bottomoptions = ({ name, search }) => {
   }, []);
 
   const handleRoute = (e) => {
-    console.log(e);
     e.preventDefault();
     setTimeout(() => {
-      history.push(`/sortModal/${name}${search}`);
+      history.replace(`/sortModal/${name}${search}`, `/${name}${search}`);
     }, 100);
   };
 

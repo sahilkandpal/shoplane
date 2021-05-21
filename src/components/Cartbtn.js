@@ -1,4 +1,16 @@
+import React, { useState, useEffect } from "react";
+
 export default function cartbtn(props) {
+  const [totalQty, setTotalQty] = useState(0);
+
+  useEffect(() => {
+    let tempQty = 0;
+    props.cart.forEach((item) => {
+      tempQty = tempQty + item.qty;
+    });
+    setTotalQty(tempQty);
+  }, [props.cart]);
+
   return (
     <div className="cart_btn">
       <svg width="24" height="24" viewBox="0 0 24 24">
@@ -9,17 +21,14 @@ export default function cartbtn(props) {
         ></path>
       </svg>
       <div className="badge2" id="lblCartCount">
-        {props.cart ? (
-          <span
-            style={{
-              display: props.cartLoader ? "none" : "inline",
-            }}
-          >
-            {props.cart.length}
-          </span>
-        ) : (
-          <span>0</span>
-        )}
+        <span
+          style={{
+            display: props.cartLoader ? "none" : "inline",
+          }}
+        >
+          {totalQty}
+        </span>
+
         <img
           className="loading"
           src="https://i.gifer.com/ZZ5H.gif"

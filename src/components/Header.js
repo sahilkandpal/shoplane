@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import Cartbtn from "./Cartbtn";
 
-const Header = ({ cart, showcart, cartLoader, icon }) => {
+const Header = ({ cart, showcart, cartLoader }) => {
   let history = useHistory();
   let { pathname } = useLocation();
-  console.log(pathname);
 
   const goback = () => {
+    console.log("back called");
     history.goBack();
   };
 
@@ -22,12 +22,6 @@ const Header = ({ cart, showcart, cartLoader, icon }) => {
         document.body.classList.add("no-scroll-background");
       });
     }
-
-    var backicon = document.getElementById("backicon");
-    if (backicon != null)
-      backicon.addEventListener("click", () => {
-        goback();
-      });
   }, [pathname]);
 
   return (
@@ -43,7 +37,7 @@ const Header = ({ cart, showcart, cartLoader, icon }) => {
           </svg>
         </div>
       ) : (
-        <a id="backicon">
+        <a id="backicon" onClick={goback}>
           <svg width="24" height="24" viewBox="0 0 24 24">
             <path
               fill="#3E4152"
@@ -65,22 +59,22 @@ const Header = ({ cart, showcart, cartLoader, icon }) => {
       ) : (
         <div className="page-name">shopping bag</div>
       )}
-      {pathname == "/" ? (
-        <ul>
-          <a href="/shirts">
-            <li>Shirts</li>
-          </a>
-          <a href="/t-shirt">
-            <li>T-shirts</li>
-          </a>
-          <a href="/dresses">
-            <li>Dresses</li>
-          </a>
-          <a href="/watches">
-            <li>Watches</li>
-          </a>
-        </ul>
-      ) : null}
+
+      <ul>
+        <a href="/shirts">
+          <li>Shirts</li>
+        </a>
+        <a href="/t-shirt">
+          <li>T-shirts</li>
+        </a>
+        <a href="/dresses">
+          <li>Dresses</li>
+        </a>
+        <a href="/watches">
+          <li>Watches</li>
+        </a>
+      </ul>
+
       {pathname == "/checkout/cart" ? (
         <div className="step-number">step 1/3</div>
       ) : (

@@ -54,7 +54,7 @@ const Menu = () => {
               </Link>
             </div>
             <div className="ripple top-nav-item" id="ripple-container">
-              <a href="javascript:void(0)">
+              <a>
                 <li>Offers</li>
               </a>
             </div>

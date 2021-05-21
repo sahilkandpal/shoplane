@@ -1,19 +1,24 @@
 import { useEffect, useState } from "react";
-
+import CartItem from "./CartItem";
 export default function Cart(props) {
   const [cartTotal, setCartTotal] = useState(0);
+
+  document.title = "SHOPPING BAG";
 
   useEffect(() => {
     var tempprice;
     tempprice = 0;
     for (let i in props.cart) {
-      tempprice = tempprice + props.cart[i].price;
+      tempprice = tempprice + props.cart[i].totalPrice;
     }
     setCartTotal(tempprice);
   }, [props.cart]);
 
   return (
-    <div className="cart">
+    <div
+      className="cart"
+      style={{ background: cartTotal > 0 ? "#f4f4f5" : "#fff" }}
+    >
       {props.cart.length > 0 ? (
         <>
           <div className="guideline">
@@ -102,49 +107,7 @@ export default function Cart(props) {
 
           <ul className="cart__list">
             {props.cart.map((item) => (
-              <li className="cart__list__item" key={item.id}>
-                <div className="item__top">
-                  <img src={item.preview} width={40} alt=""></img>
-                  <div className="item__details">
-                    <div className="item-brand">{item.brand}</div>
-                    <div className="item-name">{item.name}</div>
-                    <div className="seller-name">
-                      Sold by: Flashstar Commerce
-                    </div>
-                    <div className="product-config">
-                      <div className="product-size">
-                        Size: L
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="6"
-                          height="3"
-                          viewBox="0 0 6 3"
-                          className="dropDown"
-                        >
-                          <path fillRule="evenodd" d="M0 0h6L3 3z"></path>
-                        </svg>
-                      </div>
-                      <div className="product-qty">
-                        Qty: 2
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="6"
-                          height="3"
-                          viewBox="0 0 6 3"
-                          className="dropDown"
-                        >
-                          <path fillRule="evenodd" d="M0 0h6L3 3z"></path>
-                        </svg>
-                      </div>
-                    </div>
-                    <div className="item-price">₹ {item.price}</div>
-                  </div>
-                </div>
-                <div className="product-actions">
-                  <div className="removebtn">REMOVE</div>
-                  <div className="wishlistbtn">MOVE TO WISHLIST</div>
-                </div>
-              </li>
+              <CartItem item={item} />
             ))}
           </ul>
         </>

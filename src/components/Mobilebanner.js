@@ -13,7 +13,7 @@ const Mobilebanner = () => {
 
   return (
     <div className="ripple" id="ripple-container">
-      <a href="javascript:void(0)">
+      <a>
         <div
           className="mobile-banner"
           style={{

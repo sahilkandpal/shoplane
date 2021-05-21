@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useHistory } from "react-router-dom";
 import { ripple } from "../utils/ripple";
 const Drawer = ({ name }) => {
+  let location = useLocation();
   const history = useHistory();
   const { search } = useLocation();
   const [showDrawer, setShowDrawer] = useState(false);
@@ -22,7 +23,17 @@ const Drawer = ({ name }) => {
     ripple();
     setDrawer();
     bringDrawer();
+    window.addEventListener("popstate", onback);
+
+    return () => {
+      window.removeEventListener("popstate", onback);
+      showScroll();
+    };
   }, []);
+
+  const onback = (e) => {
+    location.state != null && history.push(location.state);
+  };
 
   const showScroll = () => {
     document.body.classList.remove("no-scroll-background");
@@ -32,9 +43,7 @@ const Drawer = ({ name }) => {
     <div className="drawer">
       <a
         onClick={() => {
-          setDrawer();
-          showScroll();
-          history.goBack();
+          history.replace(`/${name}${search}`);
         }}
       >
         <div className="drawer-overlay"></div>
@@ -46,9 +55,7 @@ const Drawer = ({ name }) => {
           <li className="drawer-item">
             <a
               onClick={() => {
-                setDrawer();
-                showScroll();
-                search != "" ? history.replace(`/${name}`) : history.goBack();
+                history.replace(`/${name}`);
               }}
             >
               <div className="ripple fixed-inner" id="ripple-container">
@@ -83,11 +90,7 @@ const Drawer = ({ name }) => {
           <li className="drawer-item">
             <a
               onClick={() => {
-                setDrawer();
-                showScroll();
-                search == "?sortBy=price&order=desc"
-                  ? history.goBack()
-                  : history.replace(`/${name}?sortBy=price&order=desc`);
+                history.replace(`/${name}?sortBy=price&order=desc`);
               }}
             >
               <div className="ripple fixed-inner" id="ripple-container">
@@ -113,11 +116,7 @@ const Drawer = ({ name }) => {
             <a
               to={`/${name}?sortBy=price&order=asc`}
               onClick={() => {
-                setDrawer();
-                showScroll();
-                search == "?sortBy=price&order=asc"
-                  ? history.goBack()
-                  : history.replace(`/${name}?sortBy=price&order=asc`);
+                history.replace(`/${name}?sortBy=price&order=asc`);
               }}
             >
               <div className="ripple fixed-inner" id="ripple-container">

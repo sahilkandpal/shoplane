@@ -1,11 +1,7 @@
 .cart {
   text-align: center;
-  z-index: 17;
   min-height: 100vh;
   width: 100%;
-  box-shadow: 0 2px 7px #dfdfdf;
-  background: #f4f4f5;
-  transition: all 0.2s ease-in-out 0s;
   padding-top: 75px;
 
   @include responsive(600px) {
@@ -176,6 +172,15 @@
         .wishlistbtn {
           flex: 1;
         }
+      }
+      .modal-container {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 2;
       }
     }
   }

@@ -1,0 +1,46 @@
+.modal {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background: #fff;
+  color: #282c3f;
+  font-weight: 600;
+
+  .modal-header {
+    font-size: 13.2px;
+    width: 100%;
+    padding: 18px 15px 15px;
+    text-transform: capitalize;
+  }
+
+  .row {
+    padding: 5px 0 24px 15px;
+
+    .qty-list-item {
+      padding: 10px 12px;
+      border: 1px solid #535766;
+      border-radius: 50%;
+      margin-right: 16px;
+      font-size: 15.2px;
+
+      .qty-number {
+        min-width: 18px;
+        text-align: center;
+        line-height: 1.5;
+      }
+    }
+
+    .qty-list-item.selected {
+      border: 1px solid #ff3f6c;
+      color: #ff3f6c;
+    }
+  }
+  .done-btn {
+    font-size: 14px;
+    color: #fff;
+    padding: 12px;
+    background: #ff3f6c;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+}
