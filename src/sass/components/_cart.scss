@@ -2,7 +2,6 @@
   text-align: center;
   min-height: 100vh;
   width: 100%;
-  padding-top: 75px;
 
   @include responsive(600px) {
     padding-top: 56px;
@@ -18,169 +17,217 @@
     line-height: 1.6;
   }
 
-  .trust {
+  .base-block {
     display: flex;
-    padding: 9px 0;
     justify-content: center;
-    color: #282c3f;
-    align-items: center;
-    background-color: #fff;
-    // margin-bottom: 8px;
-
-    &-content {
-      margin-left: 9px;
-      &-heading {
-        font-size: 13.3px;
-        font-weight: 500;
-        margin: 3px 0;
-      }
-
-      &-text {
-        font-size: 11.2px;
-      }
-    }
-  }
-
-  &__total {
-    font-size: 13.2px;
-    color: #3e4152;
-    font-weight: 500;
-    display: flex;
-    justify-content: space-between;
-    padding: 16px;
-    margin-top: auto;
-  }
-
-  &__empty {
-    color: #424553;
-
-    .sprite-img {
-      background-image: url(https://constant.myntassets.com/checkout/assets/img/checkoutSprite-21-02-2021.png);
-      width: 146px;
-      height: 165px;
-      background-position: -842px 7px;
-      background-size: 2327px 321px;
-      margin: 0 auto;
-      margin-top: 20px;
-      background-repeat: no-repeat;
-    }
-
-    h3 {
-      margin-top: 30px;
-    }
-
-    p {
-      font-size: 14px;
-      margin-top: 8px;
-      color: #7e818c;
-      @include responsive(600px) {
-        font-size: 13px;
-      }
-    }
-  }
-
-  &__list {
-    text-align: left;
-    // margin-top: 30px;
-    // margin-bottom: 30px;
-
-    &__item {
-      padding: 12px 8px 1px;
-      list-style-type: none;
-      border: 1px solid #eaeaec;
-      background-color: #fff;
-      margin-bottom: 8px;
-
-      .item__top {
+    .left-block {
+      flex: 0.5;
+      .trust {
         display: flex;
-        margin-bottom: 12px;
-        img {
-          flex: 0 0 111px;
+        padding: 9px 0;
+        justify-content: center;
+        color: #282c3f;
+        align-items: center;
+        background-color: #fff;
+        // margin-bottom: 8px;
+
+        &-content {
+          margin-left: 9px;
+          &-heading {
+            font-size: 13.3px;
+            font-weight: 500;
+            margin: 3px 0;
+          }
+
+          &-text {
+            font-size: 11.2px;
+          }
+        }
+      }
+
+      .cart__total {
+        font-size: 13.2px;
+        color: #3e4152;
+        font-weight: 500;
+        display: flex;
+        justify-content: space-between;
+        padding: 16px;
+        margin-top: auto;
+      }
+
+      &__empty {
+        color: #424553;
+
+        .sprite-img {
+          background-image: url(https://constant.myntassets.com/checkout/assets/img/checkoutSprite-21-02-2021.png);
+          width: 146px;
+          height: 165px;
+          background-position: -842px 7px;
+          background-size: 2327px 321px;
+          margin: 0 auto;
+          margin-top: 20px;
+          background-repeat: no-repeat;
         }
 
-        .item__details {
-          flex: 1;
-          margin-left: 12px;
-          margin-right: 15px;
-          color: #282c3f;
-          min-width: 0;
+        h3 {
+          margin-top: 30px;
+        }
 
-          .item-brand {
-            font-size: 12.2px;
-            padding-bottom: 3px;
-            font-weight: 600;
-            letter-spacing: 0.2px;
+        p {
+          font-size: 14px;
+          margin-top: 8px;
+          color: #7e818c;
+          @include responsive(600px) {
+            font-size: 13px;
+          }
+        }
+      }
+
+      .cart__list {
+        text-align: left;
+
+        &__item {
+          padding: 12px 8px 1px;
+          list-style-type: none;
+          border: 1px solid #eaeaec;
+          background-color: #fff;
+          margin-bottom: 8px;
+
+          &:last-child {
+            margin-bottom: 0;
           }
 
-          .item-name {
-            font-size: 13.2px;
-            margin-right: 15px;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-          }
-
-          .seller-name {
-            margin-top: 3px;
-            margin-bottom: 12px;
-            font-size: 11.2px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            color: #94969f;
-          }
-
-          .product-config {
-            color: #282c3f;
-            font-size: 13.2px;
+          .item__top {
             display: flex;
+            margin-bottom: 12px;
+            img {
+              flex: 0 0 111px;
+            }
 
-            & > * {
-              padding: 2px 8px;
-              background-color: #f5f5f6;
-              font-weight: 600;
-              &:first-of-type {
-                margin-right: 12px;
+            .item__details {
+              flex: 1;
+              margin-left: 12px;
+              margin-right: 15px;
+              color: #282c3f;
+              min-width: 0;
+
+              .item-brand {
+                font-size: 12.2px;
+                padding-bottom: 3px;
+                font-weight: 600;
+                letter-spacing: 0.2px;
+              }
+
+              .item-name {
+                font-size: 13.2px;
+                margin-right: 15px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+              }
+
+              .seller-name {
+                margin-top: 3px;
+                margin-bottom: 12px;
+                font-size: 11.2px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                color: #94969f;
+              }
+
+              .product-config {
+                color: #282c3f;
+                font-size: 13.2px;
+                display: flex;
+
+                & > * {
+                  padding: 2px 8px;
+                  background-color: #f5f5f6;
+                  font-weight: 600;
+                  &:first-of-type {
+                    margin-right: 12px;
+                  }
+                }
+                .dropDown {
+                  display: inline !important;
+                  transform: translate(4px, -2px);
+                }
+              }
+              .item-price {
+                font-size: 13.2px;
+                font-weight: 600;
+                margin-top: 12px;
               }
             }
-            .dropDown {
-              display: inline !important;
-              transform: translate(4px, -2px);
+          }
+          .product-actions {
+            display: flex;
+            font-size: 12px;
+            font-weight: 600;
+            color: #696b79;
+            border-top: 1px solid #eaeaec;
+            text-align: center;
+            & > * {
+              padding: 15px 0;
+            }
+            .removebtn {
+              flex: 0 0 30%;
+              border-right: 1px solid #d4d5d9;
+            }
+            .wishlistbtn {
+              flex: 1;
             }
           }
-          .item-price {
-            font-size: 13.2px;
-            font-weight: 600;
-            margin-top: 12px;
+          .modal-container {
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2;
           }
         }
       }
-      .product-actions {
-        display: flex;
-        font-size: 12px;
-        font-weight: 600;
-        color: #696b79;
-        border-top: 1px solid #eaeaec;
-        text-align: center;
-        & > * {
+    }
+
+    .right-block {
+      text-align: left;
+      flex: 0.25;
+      .coupon-block {
+        &-heading {
+          padding: 16px 16px 8px;
+          font-size: 12px;
+          font-weight: 600;
+          color: #535766;
+        }
+        &-main {
+          display: flex;
+          padding: 16px 16px 16px 16px;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #fff;
+
+          &-title {
+            flex: 1;
+            font-size: 13.2px;
+            font-weight: 600;
+            color: #282c3f;
+            padding-left: 15px;
+            letter-spacing: 0.2px;
+          }
+        }
+
+        &-login {
           padding: 15px 0;
+          font-size: 13.2px;
+          font-weight: 600;
+          color: #ff3f6c;
+          padding-left: 50px;
+          background-color: #fff;
+          border-top: 1px dashed #eaeaec;
         }
-        .removebtn {
-          flex: 0 0 30%;
-          border-right: 1px solid #d4d5d9;
-        }
-        .wishlistbtn {
-          flex: 1;
-        }
-      }
-      .modal-container {
-        position: fixed;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0;
-        background: rgba(0, 0, 0, 0.6);
-        z-index: 2;
       }
     }
   }

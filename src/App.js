@@ -1,4 +1,4 @@
-import { useEffect, useState, React, lazy, Suspense } from "react";
+import { React, lazy, Suspense } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Cart from "./components/Cart";
 import Menu from "./components/Menu";
@@ -20,61 +20,11 @@ const MobileHome = lazy(
 
 export default function App() {
   const isMobile = window.innerWidth <= 600;
-  const [cartLoader, setCartLoader] = useState(null);
-  const [cart, setCart] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [cacheData, setCacheData] = useState({});
-
-  useEffect(() => {
-    if (localStorage.getItem("cart-data")) {
-      setCart(JSON.parse(localStorage.getItem("cart-data")));
-    }
-  }, []);
-
-  const setproducts = (data) => {
-    setProducts(data);
-  };
-
-  const setcachedata = (cachedata) => {
-    setCacheData(cachedata);
-  };
-
-  const cartHandler = (item) => {
-    let element = cart.find((elm) => elm.id === item.id);
-    if (element) {
-      updateCart(item);
-    } else {
-      addToCart(item);
-    }
-  };
-
-  const addToCart = (item) => {
-    setCartLoader(item.id);
-    let tempcart = [{ ...item, qty: 1, totalPrice: item.price }, ...cart];
-    localStorage.setItem("cart-data", JSON.stringify(tempcart));
-    setCart(tempcart);
-    setTimeout(() => setCartLoader(null), 200);
-  };
-
-  const updateCart = (item) => {
-    setCartLoader(item.id);
-    let tempcart = [];
-    cart.map((elm) => {
-      if (elm.id == item.id) {
-        elm.qty = elm.qty + 1;
-        elm.totalPrice = elm.qty * elm.price;
-      }
-      tempcart.push(elm);
-    });
-    localStorage.setItem("cart-data", JSON.stringify(tempcart));
-    setCart(tempcart);
-    setTimeout(() => setCartLoader(null), 200);
-  };
 
   return (
     <div className="App">
       <BrowserRouter>
-        <Header cart={cart} cartLoader={cartLoader} />
+        <Header />
         <Switch>
           <Route exact path="/">
             <Menu />
@@ -93,14 +43,7 @@ export default function App() {
           </Route>
 
           <Route strict exact sensitive path={["/sortModal/:name", "/:name"]}>
-            <Productpage
-              addToCart={cartHandler}
-              cartLoader={cartLoader}
-              setproducts={setproducts}
-              products={products}
-              cacheData={cacheData}
-              setcachedata={setcachedata}
-            />
+            <Productpage />
           </Route>
 
           <Route path="/:name/:itembrand/:itemname/:id/buy">
@@ -108,7 +51,7 @@ export default function App() {
           </Route>
 
           <Route path="/checkout/cart">
-            <Cart cart={cart} />
+            <Cart />
           </Route>
 
           <Route path="*">

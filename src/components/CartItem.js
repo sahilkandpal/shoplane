@@ -1,9 +1,11 @@
 import React from "react";
 import { HashRouter, Route, Link, useHistory } from "react-router-dom";
 import ModalPage from "./ModalPage";
+import { useDispatch } from "react-redux";
+import { removeFromCart } from "../store/actions/index";
 
 const CartItem = ({ item }) => {
-  let history = useHistory();
+  let dispatch = useDispatch();
   return (
     <HashRouter hashType="noslash">
       <li className="cart__list__item" key={item.id}>
@@ -46,11 +48,16 @@ const CartItem = ({ item }) => {
                 </div>
               </Link>
             </div>
-            <div className="item-price">₹ {item.totalPrice}</div>
+            <div className="item-price">₹ {item.price * item.qty}</div>
           </div>
         </div>
         <div className="product-actions">
-          <div className="removebtn">REMOVE</div>
+          <div
+            className="removebtn"
+            onClick={() => dispatch(removeFromCart(item))}
+          >
+            REMOVE
+          </div>
           <div className="wishlistbtn">MOVE TO WISHLIST</div>
         </div>
 

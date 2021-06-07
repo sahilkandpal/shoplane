@@ -8,16 +8,14 @@ import { HomePageData } from "../utils/HomePageData";
 
 const Home = () => {
   useEffect(() => {
-    document.title =
-      "Online Shopping for Women, Men, Kids Fashion & Lifestyle - Shoplane";
     ripple();
   }, []);
 
-  let windowWidth = window.innerWidth;
+  const isMobile = window.innerWidth <= 600;
 
   return (
     <div className="react-wrapper">
-      {windowWidth > 600 ? (
+      {!isMobile ? (
         <Banner />
       ) : (
         <>

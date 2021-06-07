@@ -1,13 +1,14 @@
 import { useEffect } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation, Link } from "react-router-dom";
 import Cartbtn from "./Cartbtn";
 
-const Header = ({ cart, showcart, cartLoader }) => {
+const Header = () => {
   let history = useHistory();
   let { pathname } = useLocation();
+  const isMobile = window.innerWidth <= 600;
+  const isCartPage = pathname == "/checkout/cart";
 
   const goback = () => {
-    console.log("back called");
     history.goBack();
   };
 
@@ -25,7 +26,7 @@ const Header = ({ cart, showcart, cartLoader }) => {
   }, [pathname]);
 
   return (
-    <header>
+    <header style={{ position: isCartPage && !isMobile && "static" }}>
       {pathname == "/" ? (
         <div className="menu-icon" id="menuicon" style={{ display: "none" }}>
           <svg width="24" height="24" viewBox="0 0 24 24">
@@ -48,7 +49,9 @@ const Header = ({ cart, showcart, cartLoader }) => {
         </a>
       )}
 
-      {pathname == "/" ? (
+      {isCartPage && isMobile ? (
+        <div className="page-name">shopping bag</div>
+      ) : (
         <a href="/">
           <div className="logo">
             <span>
@@ -56,8 +59,6 @@ const Header = ({ cart, showcart, cartLoader }) => {
             </span>
           </div>
         </a>
-      ) : (
-        <div className="page-name">shopping bag</div>
       )}
 
       <ul>
@@ -78,9 +79,9 @@ const Header = ({ cart, showcart, cartLoader }) => {
       {pathname == "/checkout/cart" ? (
         <div className="step-number">step 1/3</div>
       ) : (
-        <a href="/checkout/cart" className="cart-link">
-          <Cartbtn cart={cart} showcart={showcart} cartLoader={cartLoader} />
-        </a>
+        <Link to="/checkout/cart" className="cart-link">
+          <Cartbtn />
+        </Link>
       )}
     </header>
   );

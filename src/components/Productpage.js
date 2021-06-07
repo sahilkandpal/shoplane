@@ -6,45 +6,42 @@ import Bottomoptions from "./Bottomoptions";
 import Drawer from "./Drawer";
 import Footer from "./Footer";
 import ProductPageLoader from "./ProductPageLoader";
+import { useSelector, useDispatch } from "react-redux";
+import { cache } from "../store/actions/index";
 
 const Productpage = (props) => {
-  const [data, setData] = useState([]);
   const [error, setError] = useState(false);
   const [loader, setLoader] = useState(false);
   const [options, setOptions] = useState(true);
   const [footer, setFooter] = useState(false);
 
-  const { search, pathname } = useLocation();
+  const { search } = useLocation();
   const { name } = useParams();
 
   const isMobile = window.innerWidth <= 700;
 
-  useEffect(() => {
+  const myState = useSelector((state) => state.cacheReducer);
+  const dispatch = useDispatch();
+  let pathCache = { name: name, search: search };
+
+  useEffect(async () => {
     document.title = `${name} - Buy from the Latest Collection of ${name} Online at Best Price | Shoplane`;
 
-    if (props.cacheData.name != name || props.cacheData.search != search) {
+    if (myState.pathCache.name != name || myState.pathCache.search != search) {
       setLoader(true);
-      fetch(`${process.env.REACT_APP_API_URL}/${name}${search}`)
-        .then((res) => {
-          if (res.status >= 200 && res.status <= 299) {
-            return res.json();
-          } else {
-            console.log(res);
-            throw Error(res.statusText);
-          }
-        })
-        .then((data) => {
-          props.setcachedata({ name: name, search: search });
-          props.setproducts(data);
-          setData(data);
-          setLoader(false);
-          setFooter(true);
-        })
-        .catch((err) => {
-          setOptions(false);
-          setError(true);
-          console.log(err);
-        });
+      try {
+        let res = await fetch(
+          `${process.env.REACT_APP_API_URL}/${name}${search}`
+        );
+        let data = await res.json();
+        dispatch(cache({ pathCache, data }));
+        setLoader(false);
+        setFooter(true);
+      } catch (error) {
+        setOptions(false);
+        setError(true);
+        console.log(error);
+      }
     }
   }, [search]);
 
@@ -54,7 +51,7 @@ const Productpage = (props) => {
         <div className="product_page">
           <div className="products">
             {loader == false ? (
-              props.products.map((item) => (
+              myState.data.map((item) => (
                 <Product
                   item={item}
                   addToCart={props.addToCart}

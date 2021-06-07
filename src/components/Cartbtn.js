@@ -1,15 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 
 export default function cartbtn(props) {
-  const [totalQty, setTotalQty] = useState(0);
-
-  useEffect(() => {
-    let tempQty = 0;
-    props.cart.forEach((item) => {
-      tempQty = tempQty + item.qty;
-    });
-    setTotalQty(tempQty);
-  }, [props.cart]);
+  let myState = useSelector((state) => state.cartReducer);
 
   return (
     <div className="cart_btn">
@@ -21,23 +14,7 @@ export default function cartbtn(props) {
         ></path>
       </svg>
       <div className="badge2" id="lblCartCount">
-        <span
-          style={{
-            display: props.cartLoader ? "none" : "inline",
-          }}
-        >
-          {totalQty}
-        </span>
-
-        <img
-          className="loading"
-          src="https://i.gifer.com/ZZ5H.gif"
-          alt=""
-          width={15}
-          style={{
-            display: props.cartLoader ? "inline" : "none",
-          }}
-        ></img>
+        <span>{myState.products.length}</span>
       </div>
     </div>
   );

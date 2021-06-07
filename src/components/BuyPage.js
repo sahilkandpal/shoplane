@@ -1,29 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import ProductPageLoader from "./ProductPageLoader";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../store/actions/index";
 
 const BuyPage = () => {
   const [data, setData] = useState([]);
-  const [loader, setLoader] = useState(true);
+  const [loader, setLoader] = useState(false);
   const [modalVal, setModalVal] = useState(null);
   const { id, name } = useParams();
+  let dispatch = useDispatch();
 
   const list = ["S", "M", "L", "XL", "XXL"];
 
+  const myState = useSelector((state) => state.cacheReducer);
+
   useEffect(() => {
-    fetch(
-      `https://6055954e91ea2900170d2dd0.mockapi.io/${name}?id=${id}&limit=1&page=1`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-        setLoader(false);
-      });
+    let check = myState.data.find((item) => item.id == id);
+    if (check) {
+      setData([check]);
+    } else {
+      setLoader(true);
+      fetch(
+        `https://6055954e91ea2900170d2dd0.mockapi.io/${name}?id=${id}&limit=1&page=1`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setData(data);
+          setLoader(false);
+        });
+    }
 
     window.scrollTo(0, 0);
   }, []);
 
-  console.log(modalVal);
+  const addtocart = (data) => {
+    dispatch(addToCart({ product: data, quantity: 1 }));
+  };
 
   return (
     <>
@@ -74,7 +86,7 @@ const BuyPage = () => {
               </div>
             </div>
             <div className="actions__block">
-              <div className="add__btn">
+              <div className="add__btn" onClick={() => addtocart(...data)}>
                 <div className="white-bag-sprite"></div>
                 <div className="text">add to bag</div>
               </div>
