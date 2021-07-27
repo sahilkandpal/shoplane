@@ -186,6 +186,8 @@
       display: flex;
       width: 84%;
       background-color: #fff;
+      font-size: 13.4px;
+
       @include responsive(700px) {
         width: 100%;
         position: fixed;
@@ -197,7 +199,7 @@
 
       .add__btn {
         padding: 15px 10px;
-        background: #ff3e6c;
+        background-color: #ff3e6c;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -209,6 +211,10 @@
           order: 2;
           padding: 10px 8px;
           margin: 0;
+        }
+
+        &:hover {
+          background-color: #ff527b;
         }
 
         .white-bag-sprite {
@@ -258,5 +264,21 @@
         }
       }
     }
+  }
+}
+
+.btn-pulse {
+  animation: btn-pulse 1s forwards;
+}
+
+@keyframes btn-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transfrom: scale(1);
   }
 }

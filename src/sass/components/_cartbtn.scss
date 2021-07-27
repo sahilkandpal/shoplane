@@ -1,20 +1,44 @@
 .cart_btn {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+
+  &_text {
+    font-size: 11.5px;
+    font-weight: 600;
+    text-align: center;
+    @include responsive(600px) {
+      display: none;
+    }
+  }
+
+  #lblCartCount {
+    position: absolute;
+    font-size: 12px;
+    background: #ff3e6c;
+    color: #fff;
+    vertical-align: top;
+    width: 17px;
+    height: 17px;
+    margin-top: -30px;
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+  }
+}
+.pulse {
+  animation: pulse 1s forwards;
 }
 
-#lblCartCount {
-  position: absolute;
-  font-size: 12px;
-  background: #ff3e6c;
-  color: #fff;
-  vertical-align: top;
-  width: 17px;
-  height: 17px;
-  margin-top: -30px;
-  margin-left: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 30px;
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transfrom: scale(1);
+  }
 }

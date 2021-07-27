@@ -1,0 +1,41 @@
+.toast {
+  position: fixed;
+  top: 0px;
+  right: 82px;
+  z-index: 100;
+  display: flex;
+  background: #282c3f;
+  border-radius: 3px;
+  color: #fff;
+  overflow: hidden;
+  font-weight: 500;
+  padding: 5px;
+  animation: bounce-notification 0.7s forwards;
+
+  &-thumbnail {
+    height: 39px;
+  }
+
+  &-text {
+    padding: 6px 0 6px 10px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@keyframes bounce-notification {
+  0% {
+    top: -1000px;
+    opacity: 0;
+  }
+  60% {
+    top: 110px;
+    opacity: 1;
+  }
+  80% {
+    top: 70px;
+  }
+  100% {
+    top: 100px;
+  }
+}

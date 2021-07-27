@@ -1,0 +1,125 @@
+.cart__header {
+  display: flex;
+  align-items: center;
+  padding: 20px 50px;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  top: 0;
+  background: #fff;
+  z-index: 16;
+  justify-content: space-between;
+
+  @include responsive(600px) {
+    box-shadow: none;
+    border: 1px solid #eaeaec;
+    padding: 16px 10px;
+    overflow: hidden;
+    position: fixed;
+    justify-content: unset;
+  }
+
+  .logo {
+    justify-self: center;
+    flex: 0.1;
+    text-align: center;
+    font-size: 28px;
+    display: block;
+    @include responsive(600px) {
+      font-size: 16px;
+      display: none;
+    }
+  }
+
+  .page-name {
+    font-size: 26px;
+    color: #424553;
+    font-weight: 500;
+    text-transform: uppercase;
+    display: none;
+    @include responsive(600px) {
+      display: block;
+      font-size: 15.2px;
+      font-weight: 600;
+      margin-left: 16px;
+    }
+  }
+
+  .checkout-steps {
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0.5;
+
+    .step {
+      color: #696b79;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .divider {
+      height: 4px;
+      flex: 0.2;
+      border-top: 1px dashed #696b79;
+      margin: 0 4px;
+    }
+
+    @include responsive(600px) {
+      display: none;
+    }
+  }
+
+  .secure-container {
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 26px;
+    }
+
+    &-text {
+      color: #535766;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      margin-left: 5px;
+    }
+
+    @include responsive(600px) {
+      display: none;
+    }
+  }
+
+  .step-number {
+    text-transform: uppercase;
+    font-size: 12.2px;
+    color: #424553;
+    letter-spacing: 0.2px;
+    margin-left: auto;
+    display: none;
+
+    @include responsive(600px) {
+      display: block;
+    }
+  }
+
+  a {
+    @include responsive(600px) {
+      margin-left: 20px;
+    }
+  }
+
+  .cart-link {
+    margin-left: auto;
+  }
+}
+
+#backicon {
+  display: none;
+  @include responsive(600px) {
+    display: block;
+    margin-left: 0;
+  }
+}

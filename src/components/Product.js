@@ -32,11 +32,6 @@ const Product = (props) => {
             <h4>{props.item.name}</h4>
             <div className="product-bottom-details">
               <div className="product-price">Rs.{props.item.price}</div>
-              <div className="add" onClick={() => props.addToCart(props.item)}>
-                {props.cartLoader === props.item.id
-                  ? "ADDING.........."
-                  : "ADD TO BAG"}
-              </div>
             </div>
           </div>
         </div>

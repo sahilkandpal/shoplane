@@ -8,7 +8,8 @@
 @import "components/modal";
 @import "components/menu";
 @import "components/cartbtn";
-@import "components/header";
+@import "components/defaultheader";
+@import "components/cartheader";
 @import "components/homeloader";
 @import "components/productpageloader";
 @import "components/banner";
@@ -21,6 +22,7 @@
 @import "components/bottomoptions";
 @import "components/drawer";
 @import "components/buypage";
+@import "components/toast";
 @import "components/errorpage";
 
 // .skeleton {

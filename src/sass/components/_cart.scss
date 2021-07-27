@@ -1,10 +1,11 @@
 .cart {
-  text-align: center;
   min-height: 100vh;
   width: 100%;
+  background-color: #fff;
 
   @include responsive(600px) {
     padding-top: 56px;
+    background-color: #f4f4f5;
   }
 
   .guideline {
@@ -15,82 +16,161 @@
     font-weight: 500;
     letter-spacing: 0.2px;
     line-height: 1.6;
+    text-align: center;
   }
 
   .base-block {
     display: flex;
     justify-content: center;
+    @include responsive(600px) {
+      flex-direction: column;
+    }
+
+    .trust {
+      display: flex;
+      padding: 9px 0 15px;
+      justify-content: center;
+      color: #282c3f;
+      align-items: center;
+      background-color: #fff;
+      border: 1px solid #eaeaec;
+      border-radius: 4px;
+      margin-bottom: 8px;
+      flex-direction: column;
+      @include responsive(600px) {
+        flex-direction: row;
+      }
+
+      svg {
+        margin: 8px 0 10px;
+      }
+
+      &-content {
+        margin-left: 9px;
+        text-align: center;
+        &-heading {
+          font-size: 13.3px;
+          font-weight: 500;
+          margin: 3px 0;
+        }
+
+        &-text {
+          font-size: 11.2px;
+        }
+      }
+    }
+
     .left-block {
       flex: 0.5;
-      .trust {
+      padding-right: 20px;
+      border-right: 1px solid #eaeaec;
+      padding-top: 32px;
+      @include responsive(600px) {
+        border: none;
+        padding: 0;
+      }
+      .address-block {
+        cursor: pointer;
         display: flex;
-        padding: 9px 0;
-        justify-content: center;
+        padding: 16px;
+        justify-content: space-between;
         color: #282c3f;
         align-items: center;
         background-color: #fff;
-        // margin-bottom: 8px;
+        border: 1px solid #eaeaec;
+        border-radius: 4px;
+        margin-bottom: 8px;
+        @include responsive(600px) {
+          padding: 11px 16px;
+        }
 
-        &-content {
-          margin-left: 9px;
-          &-heading {
+        &-text {
+          font-size: 13.3px;
+          font-weight: 500;
+        }
+
+        &-btn {
+          font-size: 12px;
+          text-transform: uppercase;
+          font-weight: 500;
+          color: #ff3f6c;
+          border: 1px solid #ff3f6c;
+          border-radius: 4px;
+          padding: 8px 16px;
+          @include responsive(600px) {
+            border: none;
+            padding: 0;
+          }
+        }
+      }
+
+      .offer-block {
+        border: 1px solid #eaeaec;
+        border-radius: 4px;
+        margin-bottom: 8px;
+        padding: 15px 20px;
+        background-color: #fff;
+
+        &-header {
+          display: flex;
+          align-items: center;
+          .offer-heading {
             font-size: 13.3px;
             font-weight: 500;
-            margin: 3px 0;
+            letter-spacing: 0.2px;
+            display: inline-block;
+            padding-left: 10px;
           }
+          margin-bottom: 12px;
+        }
 
-          &-text {
-            font-size: 11.2px;
+        &-text {
+          font-size: 12.5px;
+          font-weight: lighter;
+          margin-bottom: 8px;
+          padding-left: 10px;
+          color: #424553;
+        }
+
+        &-more {
+          font-size: 13.3px;
+          color: #ff3f6c;
+          font-weight: 500;
+          padding-left: 10px;
+          cursor: pointer;
+
+          .arrow-svg {
+            transform: rotate(90deg);
+            display: inline !important;
+            width: 5px;
+            margin-left: 4px;
+            fill: #ff3f6c;
+            vertical-align: middle;
           }
         }
       }
 
       .cart__total {
-        font-size: 13.2px;
-        color: #3e4152;
+        color: #050505;
         font-weight: 500;
         display: flex;
         justify-content: space-between;
-        padding: 16px;
+        padding: 18px 12px;
         margin-top: auto;
-      }
-
-      &__empty {
-        color: #424553;
-
-        .sprite-img {
-          background-image: url(https://constant.myntassets.com/checkout/assets/img/checkoutSprite-21-02-2021.png);
-          width: 146px;
-          height: 165px;
-          background-position: -842px 7px;
-          background-size: 2327px 321px;
-          margin: 0 auto;
-          margin-top: 20px;
-          background-repeat: no-repeat;
-        }
-
-        h3 {
-          margin-top: 30px;
-        }
-
-        p {
-          font-size: 14px;
-          margin-top: 8px;
-          color: #7e818c;
-          @include responsive(600px) {
-            font-size: 13px;
-          }
+        @include responsive(600px) {
+          font-size: 13.2px;
+          color: #3e4152;
+          padding: 15.2px;
         }
       }
 
       .cart__list {
-        text-align: left;
-
         &__item {
           padding: 12px 8px 1px;
           list-style-type: none;
           border: 1px solid #eaeaec;
-          background-color: #fff;
+          border-radius: 4px;
+          background-color: #ffffff;
           margin-bottom: 8px;
 
           &:last-child {
@@ -168,6 +248,8 @@
             color: #696b79;
             border-top: 1px solid #eaeaec;
             text-align: center;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
             & > * {
               padding: 15px 0;
             }
@@ -193,21 +275,35 @@
     }
 
     .right-block {
-      text-align: left;
       flex: 0.25;
+      padding: 24px 16px 24px;
+      @include responsive(600px) {
+        padding: 0px 0px 24px;
+      }
+
+      & > * {
+        @include responsive(600px) {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+      }
+
       .coupon-block {
+        background-color: #fff;
         &-heading {
-          padding: 16px 16px 8px;
+          padding: 16px 0px 8px;
           font-size: 12px;
           font-weight: 600;
           color: #535766;
+          @include responsive(600px) {
+            background-color: #f4f4f5;
+          }
         }
         &-main {
           display: flex;
-          padding: 16px 16px 16px 16px;
+          padding: 16px 0;
           justify-content: space-between;
           align-items: center;
-          background-color: #fff;
 
           &-title {
             flex: 1;
@@ -225,9 +321,102 @@
           font-weight: 600;
           color: #ff3f6c;
           padding-left: 50px;
-          background-color: #fff;
           border-top: 1px dashed #eaeaec;
+
+          @include responsive(600px) {
+            padding-left: 33px;
+          }
         }
+      }
+
+      .price-block {
+        background-color: #fff;
+        @include responsive(600px) {
+          margin-bottom: 50px;
+          margin-top: 20px;
+        }
+        &-heading {
+          padding: 16px 0px 15px;
+          font-size: 12px;
+          font-weight: 600;
+          color: #535766;
+          @include responsive(600px) {
+            color: #282c3f;
+          }
+        }
+        &-row {
+          font-size: 14.5px;
+          display: flex;
+          justify-content: space-between;
+          padding-bottom: 12px;
+          font-weight: 100;
+          font-family: "Calibri", sans-serif;
+        }
+        &-total {
+          font-size: 15px;
+          display: flex;
+          justify-content: space-between;
+          padding: 15px 0px 15px;
+          font-weight: 600;
+          font-family: "Calibri", sans-serif;
+          border-top: 1px solid #eaeaec;
+          color: #282c3f;
+        }
+      }
+      .order-btn {
+        background-color: #fff;
+        cursor: pointer;
+        @include responsive(600px) {
+          padding: 10px;
+          box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.15);
+          border-top: 1px solid #d4d5d9;
+        }
+
+        .order-text {
+          text-align: center;
+          color: #fff;
+          text-transform: uppercase;
+          font-weight: 600;
+          font-family: "Calibri", sans-serif;
+          padding: 15px;
+          background-color: #ff3f6c;
+          border-radius: 4px;
+          letter-spacing: 0.5px;
+        }
+        @include responsive(600px) {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &__empty {
+    color: #424553;
+    text-align: center;
+
+    .sprite-img {
+      background-image: url(https://constant.myntassets.com/checkout/assets/img/checkoutSprite-21-02-2021.png);
+      width: 146px;
+      height: 165px;
+      background-position: -842px 7px;
+      background-size: 2327px 321px;
+      margin: 0 auto;
+      margin-top: 20px;
+      background-repeat: no-repeat;
+    }
+
+    h3 {
+      margin-top: 30px;
+    }
+
+    p {
+      font-size: 14px;
+      margin-top: 8px;
+      color: #7e818c;
+      @include responsive(600px) {
+        font-size: 13px;
       }
     }
   }

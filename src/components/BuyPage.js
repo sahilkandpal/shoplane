@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../store/actions/index";
+import { addToast } from "../store/actions/index";
+import { removeToast } from "../store/actions/index";
 
 const BuyPage = () => {
   const [data, setData] = useState([]);
   const [loader, setLoader] = useState(false);
   const [modalVal, setModalVal] = useState(null);
+  const [added, setAdded] = useState(false);
   const { id, name } = useParams();
   let dispatch = useDispatch();
+  let history = useHistory();
 
   const list = ["S", "M", "L", "XL", "XXL"];
 
   const myState = useSelector((state) => state.cacheReducer);
+  const myCartState = useSelector((state) => state.cartReducer);
+  const myToastState = useSelector((state) => state.toastReducer);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     let check = myState.data.find((item) => item.id == id);
     if (check) {
       setData([check]);
@@ -29,12 +36,21 @@ const BuyPage = () => {
           setLoader(false);
         });
     }
-
-    window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    let checkProduct = myCartState.products.find((item) => item.id == id);
+    if (checkProduct) {
+      setAdded(true);
+    }
+  }, [myCartState]);
 
   const addtocart = (data) => {
     dispatch(addToCart({ product: data, quantity: 1 }));
+    dispatch(
+      addToast({ toast: { id: data.id, preview: data.preview }, animate: true })
+    );
+    setTimeout(() => dispatch(removeToast()), 3000);
   };
 
   return (
@@ -86,9 +102,16 @@ const BuyPage = () => {
               </div>
             </div>
             <div className="actions__block">
-              <div className="add__btn" onClick={() => addtocart(...data)}>
+              <div
+                className={`add__btn${
+                  myToastState.animate ? " btn-pulse" : ""
+                }`}
+                onClick={() =>
+                  added ? history.push("/checkout/cart") : addtocart(...data)
+                }
+              >
                 <div className="white-bag-sprite"></div>
-                <div className="text">add to bag</div>
+                <div className="text">{added ? "go to bag" : "add to bag"}</div>
               </div>
               <div className="wishlist__btn">
                 <div className="wishlist-icon-sprite"></div>
