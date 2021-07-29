@@ -57,6 +57,15 @@ const cartReducer = (state = initialState, action) => {
       localStorage.setItem("cart-data", JSON.stringify(finalCart));
       return finalCart;
 
+    case "DELETE_CART":
+      localStorage.removeItem("cart-data");
+      let EmptyCart = {
+        products: [],
+        totalQuantity: 0,
+        totalPrice: 0,
+      };
+      return EmptyCart;
+
     default:
       return state;
   }

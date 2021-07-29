@@ -1,0 +1,23 @@
+.confirm-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .confirm-box {
+    text-align: center;
+
+    svg {
+      display: block !important;
+      margin: 0 auto;
+      font-size: 30px;
+    }
+
+    .confirm-text {
+      font-size: 20px;
+      font-weight: 500;
+      color: #282c3f;
+      margin-top: 15px;
+    }
+  }
+}

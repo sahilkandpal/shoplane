@@ -19,6 +19,12 @@ export const removeFromCart = (data) => {
   };
 };
 
+export const DeleteCart = () => {
+  return {
+    type: "DELETE_CART",
+  };
+};
+
 export const addToast = (data) => {
   return {
     type: "ADD_TOAST",

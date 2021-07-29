@@ -325,7 +325,9 @@ export default function Cart() {
                 </div>
               </div>
               <div className="order-btn">
-                <div className="order-text">place order</div>
+                <a href="/checkout/order">
+                  <div className="order-text">place order</div>
+                </a>
               </div>
             </div>
           </div>

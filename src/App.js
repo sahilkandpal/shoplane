@@ -10,6 +10,7 @@ import Productpage from "./components/Productpage";
 import BuyPage from "./components/BuyPage";
 import Footer from "./components/Footer";
 import Errorpage from "./components/Errorpage";
+import ConfirmPage from "./components/ConfirmPage";
 import "./sass/main.scss";
 
 const MobileHome = lazy(
@@ -53,6 +54,10 @@ export default function App() {
 
           <Route path="/checkout/cart">
             <Cart />
+          </Route>
+
+          <Route path="/checkout/order">
+            <ConfirmPage />
           </Route>
 
           <Route path="*">
