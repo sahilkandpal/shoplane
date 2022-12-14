@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+import { StrictMode, useEffect } from "react";
 import ReactDOM from "react-dom";
 import React from "react";
 import App from "./App";
@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 store.subscribe(() => console.log("store", store.getState()));
 
 const rootElement = document.getElementById("root");
+
 ReactDOM.render(
   <StrictMode>
     <Provider store={store}>

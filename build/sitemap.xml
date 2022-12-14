@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- created with sitemap-gen https://sitemap-gen.com/ -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://shoplane2021.netlify.app/</loc>
+		<lastmod>2021-07-29T16:45:58.8227104+02:00</lastmod>
+	</url>
+	<url>
+		<loc>https://shoplane2021.netlify.app/shirts</loc>
+		<lastmod>2021-07-29T16:45:58.8227104+02:00</lastmod>
+	</url>
+	<url>
+		<loc>https://shoplane2021.netlify.app/t-shirt</loc>
+		<lastmod>2021-07-29T16:45:58.8227104+02:00</lastmod>
+	</url>
+	<url>
+		<loc>https://shoplane2021.netlify.app/dresses</loc>
+		<lastmod>2021-07-29T16:45:58.8227104+02:00</lastmod>
+	</url>
+	<url>
+		<loc>https://shoplane2021.netlify.app/watches</loc>
+		<lastmod>2021-07-29T16:45:58.8227104+02:00</lastmod>
+	</url>
+	<url>
+		<loc>https://shoplane2021.netlify.app/checkout/cart</loc>
+		<lastmod>2021-07-29T16:45:58.8227104+02:00</lastmod>
+	</url>
+</urlset>

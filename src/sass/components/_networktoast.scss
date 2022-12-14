@@ -1,0 +1,23 @@
+.offlineToast, .onlineToast {
+    position: fixed;
+    display: flex;
+    align-items: center!important;
+    bottom: 0;
+    width: 100%;
+    padding: 15px;
+    color: white;
+    font-size: 14px;
+    z-index: 99999;
+
+    .barIcon {
+        margin-right: 10px;
+    }
+}
+
+.offlineToast{
+    background-color: #ff5722;
+}
+
+.onlineToast{
+    background-color: #03a685;
+}

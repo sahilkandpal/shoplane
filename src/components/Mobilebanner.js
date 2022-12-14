@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Mobilebanner = () => {
   const [loaded, setLoaded] = useState(false);
@@ -11,8 +12,10 @@ const Mobilebanner = () => {
     "rgb(255, 242, 223)",
   ];
 
+  const history = useHistory();
+
   return (
-    <div className="ripple" id="ripple-container">
+    <div className="ripple" id="ripple-container" onClick={()=>{setTimeout(()=>history.push("/shirts"), 500)}}>
       <a>
         <div
           className="mobile-banner"

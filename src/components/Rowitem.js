@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 
 const Rowitem = ({ ratio, url }) => {
   const [loaded, setLoaded] = useState(false);
@@ -12,8 +13,10 @@ const Rowitem = ({ ratio, url }) => {
     "rgb(255, 242, 223)",
   ];
 
+  const history = useHistory();
+
   return (
-    <div className="ripple" id="ripple-container">
+    <div className="ripple" id="ripple-container" onClick={()=>{setTimeout(()=>history.push("/shirts"), 500)}}>
       <div
         className="col"
         style={{
