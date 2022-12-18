@@ -2,18 +2,19 @@ const CACHE_NAME = "version-1";
 const urlsToCache = [
 "/",
 "index.html",
-"static/js/bundle.js",
-"/static/js/2.4b2dfb64.chunk.js",
+"/static/css/main.bc3830f3.chunk.css",
+"/static/js/main.bef5de00.chunk.js",
 "/static/js/runtime-main.e1767024.js",
-"/static/js/main.f145c92a.chunk.js",
-"static/css/main.087c9e7f.chunk.css",
+"static/css/2.65f8c46c.chunk.css",
 "/static/css/2.65f8c46c.chunk.css",
+"static/js/2.83414947.chunk.js",
+"/static/js/2.83414947.chunk.js",
 "/static/media/*"
 ];
 
 const self = this;
 
-// Install SW
+// Listen for Install Event
 self.addEventListener("install", (event) => {
   console.log(event);
   event.waitUntil(
@@ -23,7 +24,7 @@ self.addEventListener("install", (event) => {
     })
   );
 });
-//Listen for Requests
+//Listen for Fetch Event
 self.addEventListener("fetch", (event) => {
     if(!navigator.onLine){
     event.respondWith(
@@ -32,7 +33,7 @@ self.addEventListener("fetch", (event) => {
     }));
 }
  });
- // Activate the SW 
+ // Listen for Activate Event
  self.addEventListener("activate", (event) => {
     const cacheWhitelist = [];
     cacheWhitelist.push(CACHE_NAME);

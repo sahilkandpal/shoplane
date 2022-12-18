@@ -10,7 +10,7 @@ const urlsToCache = [
 
 const self = this;
 
-// Install SW
+// Listen for Install Event
 self.addEventListener("install", (event) => {
   console.log(event);
   event.waitUntil(
@@ -20,7 +20,7 @@ self.addEventListener("install", (event) => {
     })
   );
 });
-//Listen for Requests
+//Listen for Fetch Event
 self.addEventListener("fetch", (event) => {
     if(!navigator.onLine){
     event.respondWith(
@@ -29,7 +29,7 @@ self.addEventListener("fetch", (event) => {
     }));
 }
  });
- // Activate the SW 
+ // Listen for Activate Event
  self.addEventListener("activate", (event) => {
     const cacheWhitelist = [];
     cacheWhitelist.push(CACHE_NAME);

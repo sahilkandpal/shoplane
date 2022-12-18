@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Menu = () => {
+  const [pwaPrompt, setPwaPrompt] = useState(null);
+
   useEffect(() => {
     var layer = document.getElementById("layer");
     var menuitem = document.getElementsByClassName("top-nav-item");
@@ -20,6 +22,45 @@ const Menu = () => {
       });
     }
   }, []);
+
+  useEffect(()=>{
+    grantNotificationPerm();
+    const cb = (t)=>{
+      t.preventDefault();
+      setPwaPrompt(t);
+    }
+    window.addEventListener("beforeinstallprompt", cb);
+
+    ()=>{
+      return window.removeEventListener("beforeinstallprompt", cb);
+    }
+
+}, []);
+
+const grantNotificationPerm= () =>{
+  if (Notification.permission !== 'denied') {
+    Notification.requestPermission();
+  }
+}
+
+  
+
+  const installPwa = () =>{
+    console.log("click pwas");
+    if(pwaPrompt){
+      pwaPrompt.prompt();
+    pwaPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('User accepted the A2HS prompt');
+        if (Notification.permission === "granted") {
+          new Notification("Thanks for installing PWA !");
+        }  
+      } else {
+        console.log('User dismissed the A2HS prompt');
+      }
+    });  
+    }
+  }
 
   return (
     <div className="menu__container" id="show">
@@ -56,6 +97,12 @@ const Menu = () => {
             <div className="ripple top-nav-item" id="ripple-container">
               <a>
                 <li>Offers</li>
+              </a>
+            </div>
+            <div className="ripple top-nav-item" id="ripple-container">
+              <a className="pwa" id="pwaBtn" onClick={installPwa}>
+                <li>Install PWA</li>
+                <img src="/downloadPwa.png" width="20" alt="downlaod pwa" />
               </a>
             </div>
           </ul>
