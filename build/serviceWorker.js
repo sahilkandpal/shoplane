@@ -6,9 +6,7 @@ const urlsToCache = [
 "/static/js/main.bef5de00.chunk.js",
 "/static/js/runtime-main.e1767024.js",
 "static/css/2.65f8c46c.chunk.css",
-"/static/css/2.65f8c46c.chunk.css",
 "static/js/2.83414947.chunk.js",
-"/static/js/2.83414947.chunk.js",
 "/static/media/*"
 ];
 
